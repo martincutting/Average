@@ -6,7 +6,7 @@ var avg = Vue.createApp({
                 <span class="subtitle">Numbers can be separated by commas or spaces</span>
             </div>
             <div id="input">
-                <input id="input-numbers" type="text" @keydown="filterInput" @change="inputChanged">
+                <input id="input-numbers" type="text" @keydown="filterInput" @keyup="enableButton">
             </div>
             <div id="buttondiv">
                 <button id="calcAverages" @click="getNumbers()" disabled>Give me my averages!</button>
@@ -30,7 +30,8 @@ var avg = Vue.createApp({
     data() {
         return {
           numberlist: [],
-          allowedInput: "1234567890-., ".split("").concat(["backspace", "delete", "arrowleft", "arrowright"])
+          allowedInput: "1234567890-., ".split("").concat(["backspace", "delete", "arrowleft", "arrowright"]),
+          numberInput: $("#input-numbers").val() != "" ? 0 : 1
         }
     },
 
@@ -62,6 +63,8 @@ var avg = Vue.createApp({
               e.preventDefault()
               this.getNumbers()
             } else if (!this.allowedInput.includes(e.key.toLowerCase())) { e.preventDefault() }
+        },
+        enableButton() {
             $("#calcAverages").prop('disabled', $("#input-numbers").val().trim() != "" ? false : true)
         },
         round(number, decimalPlaces = 0) {
@@ -90,7 +93,7 @@ var avg = Vue.createApp({
         var valueAtHalfwayFloor = this.numberlist[Math.floor((this.numberlist.length - 1) / 2)]
         var valueAtHalfwayCeil = this.numberlist[Math.ceil((this.numberlist.length - 1) / 2)]
         return this.numberlist.length % 2 == 0 ? this.round(((valueAtHalfwayFloor + valueAtHalfwayCeil) / 2), 2) : valueAtHalfwayFloor
-      },
+      }
     },
 
   })
