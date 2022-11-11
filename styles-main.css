@@ -73,8 +73,6 @@ body {
     grid-template-rows: 90px 50px 60px 400px;
 }
 
-#interfaces div { border: 1px dotted blue; }
-
 #prompt {
     padding: 5px;
 }
