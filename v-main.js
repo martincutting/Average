@@ -30,8 +30,7 @@ var avg = Vue.createApp({
     data() {
         return {
           numberlist: [],
-          allowedInput: "1234567890-., ".split("").concat(["backspace", "delete", "arrowleft", "arrowright"]),
-          numberInput: $("#input-numbers").val() != "" ? 0 : 1
+          allowedInput: "1234567890-., ".split("").concat(["backspace", "delete", "arrowleft", "arrowright"])
         }
     },
 
