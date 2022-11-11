@@ -73,12 +73,21 @@ body {
     grid-template-rows: 90px 50px 60px 400px;
 }
 
+#interfaces div { border: 1px dotted blue; }
+
 #prompt {
     padding: 5px;
 }
 
 #input {
     justify-content: center;
+}
+
+#error {
+    font-size: var(--font-size-subtitle);
+    color: rgb(202, 74, 74);
+    font-weight: bold;
+    visibility: hidden;
 }
 
 input {
@@ -99,6 +108,7 @@ button {
     font-size: var(--font-size-button);
     width: 40%;
     height: 40px;
+    cursor: pointer;
 }
 
 #results {
