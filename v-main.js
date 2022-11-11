@@ -23,6 +23,7 @@ var avg = Vue.createApp({
                     <div class="average-div"><div class="average-text"><b>Median:</b><br />{{median}}</div></div>
                 </div>
             </div>
+            <div id="error"><div>Sorry... couldn't find two or more numbers in your list.</div></div>
         </div>
     `,
 
@@ -43,7 +44,8 @@ var avg = Vue.createApp({
                     if (number.match(/^-?([0]{1}\.{1}[0-9]+|[1-9]{1}[0-9]*\.{1}[0-9]+|[0-9]+|0)$/) !== null) { this.numberlist.push(parseFloat(number)) }
                 })
             }
-            this.numberlist.sort(function(x, y) { return x - y });
+            $("#error").css('visibility', (this.numberlist.length > 0 ? 'hidden' : 'visible'))
+            this.numberlist.sort(function(x, y) { return x - y })
         },
         determineSeparator() {
             var separator = { character: '', count: 0 }
@@ -55,6 +57,7 @@ var avg = Vue.createApp({
             return separator.count < 2 ? '' : separator.character
         },
         filterInput(e) {
+            if (e.ctrlKey && "va".includes(e.key.toLowerCase())) { return true }
             if (e.key.toLowerCase() == "enter") {
               e.preventDefault()
               this.getNumbers()
