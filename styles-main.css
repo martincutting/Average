@@ -1,0 +1,180 @@
+:root {
+    font-family: Tahoma, Geneva, Verdana, sans-serif;
+    color: rgb(32, 32, 32);
+    text-align: center;
+}
+
+@media only screen and (max-width: 420px) {
+    :root {
+        --main-width: 300px;
+        --font-size-title: 12px;
+        --font-size-results: 11px;
+        --font-size-subtitle: 8px;
+        --font-size-button: 10pt;
+        --font-size-averages: 10pt;
+        --width-percentage: 25%;
+        line-height: 12pt;
+    }
+}
+@media only screen and (min-width: 421px) and (max-width: 800px) {
+    :root {
+        --main-width: 750px;
+        --font-size-title: 18px;
+        --font-size-subtitle: 18px;
+        --font-size-results: 16px;
+        --font-size-button: 12pt;
+        --font-size-averages: 12pt;
+        --width-percentage: 10%;
+        line-height: 18pt;
+    }
+}
+@media only screen and (min-width: 801px) and (max-width: 1000px) {
+    :root {
+        --main-width: 800px;
+        --font-size-title: 18px;
+        --font-size-subtitle: 16px;
+        --font-size-results: 14px;
+        --font-size-button: 11pt;
+        --font-size-averages: 11pt;
+        --width-percentage: 10%;
+        line-height: 18pt;
+    }
+}
+@media only screen and (min-width: 1001px) {
+    :root {
+        --main-width: 1000px;
+        --font-size-title: 24px;
+        --font-size-subtitle: 18px;
+        --font-size-results: 18px;
+        --font-size-button: 16pt;
+        --font-size-averages: 16pt;
+        --width-percentage: 10%;
+        line-height: 24pt;
+    }
+}
+
+body {
+    background-image: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe, #41dfff, #46eefa, #5ffbf1);
+    background-image: -webkit-gradient(linear, left bottom, right top, from(#ff2f55), color-stop(#d61c6e), color-stop(#a22579), color-stop(#6a2b74), color-stop(#342961),to(#021f44));
+    background-attachment: fixed;
+}
+
+#interface {
+    position: absolute;
+    width: var(--main-width);
+    height: 600px;
+    border: 2px solid red;
+    border-radius: 15px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(219, 219, 219);
+    display: grid;
+    grid-template-rows: 90px 50px 60px 400px;
+}
+
+#interfaces div { border: 1px dotted blue; }
+
+#prompt {
+    padding: 5px;
+}
+
+#input {
+    justify-content: center;
+}
+
+input {
+    text-align: center;
+    width: 80%;
+    height: 30px;
+    font-size: var(--font-size-title);
+    border-style: solid;
+    border-color: rgb(39, 0, 102);
+    background-color: bisque;
+    border-radius: 10px;
+}
+
+button {
+    border-style: solid;
+    border-color: rgb(39, 0, 102);
+    border-radius: 5px;
+    font-size: var(--font-size-button);
+    width: 40%;
+    height: 40px;
+}
+
+#results {
+    display: grid;
+    grid-template-rows: 40px 240px 40px 80px;
+}
+
+.results-title {
+    display: flex;
+    font-size: var(--font-size-results);
+    justify-content: center;
+    align-items: end;
+}
+
+#number-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 5px;
+    row-gap: 5px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.number {
+    border: 3px dotted rgb(38, 157, 197);
+    border-radius: 5px;
+    background-color: rgb(233, 211, 183);
+    width: var(--width-percentage);
+    height: 60px;
+    align-items: center;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+}
+
+.number-text {
+    height: auto;
+    font-weight: bold;
+}
+
+.title {
+    font-size: var(--font-size-title);
+}
+
+.subtitle {
+    font-size: var(--font-size-subtitle);
+    font-style: italic;
+}
+
+#averages {
+    display: flex;
+    justify-content: center;
+    column-gap: 15px;
+}
+
+.average-div {
+    border: 3px dotted rgb(38, 157, 197);
+    border-radius: 5px;
+    background-color: rgb(184, 252, 193);
+    width: 20%;
+    height: 60px;
+    align-items: center;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    overflow: hidden;
+}
+
+.average-text {
+    font-size: var(--font-size-averages);
+    line-height: calc(var(--font-size-averages) + 2pt);
+    width: 100%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
